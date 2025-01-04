@@ -49,19 +49,13 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Train a forecasting model.')
     parser.add_argument('--dataset', type=str, required=True, help='Name of the dataset to use')
     parser.add_argument('--config_path', type=str, required=True, help='Path to the configuration file')
-    parser.add_argument('--device', type=str, required=True)
     args = parser.parse_args()
 
     dataset = args.dataset
     config_path = args.config_path
-    device = args.device
-
-    print("Dataset : ",dataset)
-    print("Config Path : ",config_path)
-    print("Device : ",device)
     
     
-    # device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
     config = Config(config_path,device)
     
     Forecaster = getattr(importlib.import_module(forecasters[config.model_type]),models[config.model_type])
