@@ -1,0 +1,22 @@
+type: light
+MODEL:
+  dec:
+    type: LSTM
+    hidden_size: 0
+    noise_size: 0
+    num_layers: 1
+
+  history_window_size: 0
+  horizon: 0
+  repeat_factor: 32
+  lr: 0.001
+  optimizer: rms
+TRAIN:
+  batch_size: 256
+  early_stopping_tolerance: 10000
+  file_log: true
+  n_samples: 1000
+  n_steps: 100000
+  screen_log: true
+  skip_val: 0
+  val_interval: 10

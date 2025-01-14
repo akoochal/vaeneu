@@ -29,6 +29,11 @@ class Config:
                 self.enc = self.get_module(conf_dict["enc"])
                 self.dec = self.get_module(conf_dict["dec"])
                 self.repeat_factor = conf_dict["repeat_factor"]
+            
+            elif model_type == "light":
+                self.dec = self.get_module(conf_dict["dec"])
+                self.repeat_factor = conf_dict["repeat_factor"]
+
 
         def get_module(self,conf_dict):
             if conf_dict["type"] in ["LSTM","GRU"]:
@@ -145,6 +150,20 @@ class Config:
                 self.model.enc.kernel_size = enc_kernel_size
             else:
                 raise Exception("Encoder type {} is not implemented".format(self.model.enc.type))
+            
+        elif self.model_type == "light":
+            if self.model.dec.type in ["LSTM","GRU"]:
+                self.model.dec.hidden_size = self.model.history_window_size // 2
+                self.model.dec.noise_size = self.model.history_window_size // 2
+            elif self.model.dec.type == "TCN":
+                self.model.dec.hidden_size = 2*int(np.ceil(np.log2(self.model.history_window_size)))
+                self.model.dec.noise_size = 2*int(np.ceil(np.log2(self.model.history_window_size)))
+
+                dec_n_layers,dec_kernel_size = get_n_k(self.model.history_window_size)
+                self.model.dec.num_layers = dec_n_layers
+                self.model.dec.kernel_size = dec_kernel_size
+            else:
+                raise Exception("Decoder type {} is not implemented".format(self.model.dec.type))
 
 def get_n_k(l):
     est_k=5

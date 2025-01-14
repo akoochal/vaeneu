@@ -18,30 +18,16 @@ torch.cuda.manual_seed(123)
 
 
 forecasters = {"forgan":"models.forgan",
-            "vaeneu":"models.vaeneu"}
+            "vaeneu":"models.vaeneu",
+            "light":"models.light"}
 
 models = {"forgan":"ForGAN",
-        "vaeneu":"VAEneu"}
+        "vaeneu":"VAEneu",
+        "light":"Light"}
 
 trainers = {"forgan":"trainers.forgan",
-            "vaeneu":"trainers.vaeneu"}
-'''
- Choice from the following datasets:
- [
-        "gold_price_dataset",
-        "hepc_dataset",
-        "internet_traffic_a1h_dataset",
-        "internet_traffic_a5m_dataset",
-        "internet_traffic_b1h_dataset",
-        "internet_traffic_b5m_dataset",
-        "mackey_glass_dataset",
-        "saugeenday_dataset",
-        "solar_4_seconds_dataset",
-        "sunspot_dataset_without_missing_values",
-        "us_births_dataset",
-        "wind_4_seconds_dataset"
-	]
-'''
+            "vaeneu":"trainers.vaeneu",
+            "light":"trainers.light"}
 
 result_path = "./results"
 
