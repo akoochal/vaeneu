@@ -1,6 +1,6 @@
 # VAEneu: A New Avenue for VAE Application on Probabilistic Forecasting
 
-This repository contains the implementation of [**VAEneu**](https://arxiv.org/abs/2405.04252), an innovative method for multistep-ahead univariate probabilistic time series forecasting using Conditional Variational Autoencoders (CVAE). VAEneu optimizes the predictive distribution likelihood with the Continuous Ranked Probability Score (CRPS), resulting in sharp and well-calibrated predictive distributions.
+This repository contains the implementation of [**VAEneu**](https://link.springer.com/article/10.1007/s10489-024-06203-5), an innovative method for multistep-ahead univariate probabilistic time series forecasting using Conditional Variational Autoencoders (CVAE). VAEneu optimizes the predictive distribution likelihood with the Continuous Ranked Probability Score (CRPS), resulting in sharp and well-calibrated predictive distributions.
 
 The repository also contains a new version of code for [ForGAN](https://ieeexplore.ieee.org/abstract/document/8717640) which is used in this publication.
 
